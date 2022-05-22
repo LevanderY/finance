@@ -43,7 +43,11 @@ const MainPage = () => {
     return (
         <div>
             <Table pagination={{position: ['bottomCenter']}} dataSource={tickersList}>
-              <Column title='Ticker' dataIndex='ticker' />
+              <Column 
+                title='Ticker' 
+                dataIndex='ticker' 
+                render={(ticker) => <p data-testid={`tickers-${ticker}`}>{ticker}</p>} 
+              />
               <Column title='Exchange' dataIndex='exchange' />
               <Column 
                 title='Price'
