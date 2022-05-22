@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useRef  } from 'react';
+import { Table } from 'antd';
 import socketIOClient from "socket.io-client";
-import { ENDPOINT } from '../../constants'
+import { ENDPOINT, tickersColumns } from '../../constants'
 import { getTickers } from '../../store/tickers/thunk';
 
 const MainPage = () => {
@@ -25,7 +26,7 @@ const MainPage = () => {
           socket.open();
           socket.emit('start');
           socket.on('ticker', (data) => {
-            dispatch(getTickers(data))
+            dispatch(getTickers(data));
           })
         } catch (error) {
           console.log(error);
@@ -35,13 +36,9 @@ const MainPage = () => {
         };
       }, [dispatch]);
 
-      useEffect(() => {
-        console.log(tickersList)
-      }, [tickersList])
-
     return (
         <div>
-            <h1>Ffff</h1>
+            <Table pagination={{position: ['bottomCenter'],}} dataSource={tickersList} columns={tickersColumns} />;
         </div>
     )
 }
