@@ -5,6 +5,7 @@ import socketIOClient from "socket.io-client";
 import { ENDPOINT } from '../../constants'
 import { getTickers } from '../../store/tickers/thunk';
 import TickerDetailButton from '../../components/TickerDetailButton/TickerDetailButton';
+import CheckGrowth from '../../components/CheckGrowth/CheckGrowth';
 
 const { Column } = Table;
 
@@ -44,10 +45,34 @@ const MainPage = () => {
             <Table pagination={{position: ['bottomCenter']}} dataSource={tickersList}>
               <Column title='Ticker' dataIndex='ticker' />
               <Column title='Exchange' dataIndex='exchange' />
-              <Column title='Price' dataIndex='price' />
-              <Column title='Change percent' dataIndex='change_percent' />
-              <Column title='Dividend' dataIndex='dividend' />
-              <Column title='Yield' dataIndex='yield' />
+              <Column 
+                title='Price'
+                key={'checkGrowthPrice'}
+                render={({price}) => (
+                    <CheckGrowth growItem={price}/>
+                )}
+              />
+              <Column 
+                title='Change percent'
+                key={'changePercent'}
+                render={({change_percent}) => (
+                    <CheckGrowth growItem={change_percent}/>
+                )}
+              />
+              <Column 
+                title='Dividend'
+                key={'changeDividend'}
+                render={({dividend}) => (
+                    <CheckGrowth growItem={dividend}/>
+                )}
+              />
+              <Column 
+                title='Yield'
+                key={'changeYield'}
+                render={(item) => (
+                    <CheckGrowth growItem={item.yield}/>
+                )}
+              />
               <Column
                 title={'Show more'}
                 key='showMoreTicker'

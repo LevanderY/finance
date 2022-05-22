@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Container from '../../components/Container/Container'
 import { findTickerByName } from "../../helpers/findTickerByName";
-import { capitalizeFirstLetter } from '../../helpers/capitalizeFirstLetter';
 
 import s from './DetailPage.module.css'
 
