@@ -1,0 +1,23 @@
+{
+  "name": "streaming-prices",
+  "version": "1.0.0",
+  "description": "Push JSON prices in real-time over websockets",
+  "main": "server.js",
+  "dependencies": {
+    "@types/jest": "^27.5.1",
+    "@types/node": "^17.0.35",
+    "@types/react": "^18.0.9",
+    "@types/react-dom": "^18.0.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^4.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "devDependencies": {
+    "eslint-config-xo": "^0.41.0",
+    "eslint-plugin-react": "^7.30.0"
+  }
+}
