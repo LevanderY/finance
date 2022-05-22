@@ -37,6 +37,7 @@ function getQuotes(socket) {
     dividend: randomValue(0, 1, 2),
     yield: randomValue(0, 2, 2),
     last_trade_time: utcDate(),
+    desription: `${ticker} lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec sapien nunc.`,
   }));
 
   socket.emit('ticker', quotes);
